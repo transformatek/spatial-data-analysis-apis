@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "07ab07ad-188e-4c46-80d4-439c100616ca",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/getWilaya",
+    "url": "http://localhost:3000/getWilaya",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-20T10:11:47.400Z",
+    "modified": "2023-02-20T10:12:17.302Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"lat\":1.710978 ,\n  \"long\":35.968918\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f2917a8f-b1e8-4ba7-aa82-2f1eaa65f9cf",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/api/v1/getWilaya",
+    "url": "http://localhost:3000/api/v1/getWilaya",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-20T10:24:11.008Z",
+    "modified": "2023-02-20T11:11:18.137Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"lat\":3.410978 ,\n  \"long\":32.968918\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
