@@ -7,7 +7,7 @@ exports.getWilaya = (req, res) => {
     let data = fs.readFileSync('./data/wilayas_58.geojson');
     const lat = req.body.lat;
     const long = req.body.long;
-    const point = turf.point([lat, long], {});
+    const point = turf.point([long, lat], {});
     features = JSON.parse(data).features;
     var found = false,
         i = 0;
