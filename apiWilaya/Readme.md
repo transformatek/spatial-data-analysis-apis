@@ -14,9 +14,8 @@ This api is built with :
 1. Clone the repo
 
 ```sh
-   git clone https://github.com/transformatek/spatial-data-analysis-apis.git
-
-   ```
+git clone https://github.com/transformatek/spatial-data-analysis-apis.git
+```
 2. Go to apiWilaya
 
 ```bash
@@ -33,10 +32,7 @@ npm install
 node server
 ```
 
-### Or 
-
-
-## Using cURL
+## Check using cURL
 
 **Note :** the lat and long here are an example 
 
