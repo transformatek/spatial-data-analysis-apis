@@ -36,5 +36,44 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "36a37ada-f8cd-4870-83d9-2d80a64a3964",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/api/v0/getWilaya",
+    "url": "http://localhost:3000/api/v0/getWilaya",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-20T12:35:24.659Z",
+    "modified": "2023-02-20T12:35:24.659Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1c5e695d-331e-4c57-b90b-d9d80626d741",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/api/v0/getWilaya",
+    "url": "http://localhost:3000/api/v1/getWilaya?lat=35&long=0",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-20T12:35:57.279Z",
+    "modified": "2023-03-05T13:49:00.616Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "lat",
+        "value": "35",
+        "isPath": false
+      },
+      {
+        "name": "long",
+        "value": "0",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]

@@ -1,28 +1,42 @@
 const turf = require('@turf/turf');
 const fs = require('fs');
-let features = [];
-
 
 exports.getWilaya = (req, res) => {
-    let data = fs.readFileSync('./data/wilayas_58.geojson');
-    const lat = req.body.lat;
-    const long = req.body.long;
-    const point = turf.point([long, lat], {});
-    features = JSON.parse(data).features;
-    var found = false,
-        i = 0;
-    while (found != "1") {
-        const isInside = turf.inside(point, features[i]);
-        if (isInside) {
-            var wilaya = features[i].properties;
-            found = true;
+
+    try {
+
+        let data = fs.readFileSync('./data/wilayas_58.geojson');
+        var features = JSON.parse(data).features;
+
+        const lat = req.query.lat * 1;
+        const long = req.query.long * 1;
+
+        if (lat == 0) {
+            throw new Error("Incorrect Coordinates");
+        } else {
+            const point = turf.point([long, lat], {});
+            let wilaya;
+            let found = false;
+            let i = 0;
+            while (found != "1") {
+                const isInside = turf.inside(point, features[i]);
+                if (isInside) {
+                    wilaya = features[i].properties;
+                    found = true;
+                }
+                i++;
+            }
+            res.status(200).json({
+                status: 'Success',
+                data: {
+                    wilaya
+                },
+            });
         }
-        i++;
+    } catch (error) {
+        res.status(400).json({
+            status: 'Fail',
+            message: error.message
+        });
     }
-    res.status(200).json({
-        status: 'success',
-        data: {
-            wilaya
-        },
-    });
 }
