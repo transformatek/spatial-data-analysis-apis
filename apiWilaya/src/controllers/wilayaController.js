@@ -5,29 +5,29 @@ exports.getWilaya = (req, res) => {
 
     try {
 
-        let data = fs.readFileSync('./data/wilayas_58.geojson');
-        var features = JSON.parse(data).features;
+        const wilayasGeoJSON = fs.readFileSync('./data/wilayas_58.geojson');
+        const wilayasFeatures = JSON.parse(wilayasGeoJSON).features;
+
         const lat = Number(req.query.lat)
         const long = Number(req.query.long)
-
         const point = turf.point([long, lat], {});
-        let wilaya;
-        let found = false;
-        let i = 0;
-        while (found != "1") {
-            const isInside = turf.inside(point, features[i]);
+
+        for (let i = 0; i < wilayasFeatures.length; i++) {
+            const isInside = turf.inside(point, wilayasFeatures[i]);
             if (isInside) {
-                wilaya = features[i].properties;
-                found = true;
+                res.status(200).json({
+                    status: 'Success',
+                    data: {
+                        "wilaya": wilayasFeatures[i].properties
+                    },
+                });
             }
-            i++;
         }
-        res.status(200).json({
-            status: 'Success',
-            data: {
-                wilaya
-            },
+        res.status(404).json({
+            status: 'Fail',
+            message: "Not found"
         });
+
     } catch (error) {
         res.status(400).json({
             status: 'Fail',
