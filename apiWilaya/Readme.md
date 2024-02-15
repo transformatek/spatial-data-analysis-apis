@@ -38,4 +38,5 @@ node server
 
 ```bash
 curl -X GET "http://localhost:3000/api/v1/getWilaya?lat=35&long=0"
+curl -X GET "http://localhost:3000/api/v1/getCommune?lat=35&long=0"
 ```
