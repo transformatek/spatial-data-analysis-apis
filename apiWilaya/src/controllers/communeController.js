@@ -1,6 +1,70 @@
 const turf = require('@turf/turf');
 const fs = require('fs');
 
+/**
+ * @swagger
+ * /api/v1/getCommune:
+ *   get:
+ *     summary: Get commune by coordinates
+ *     description: Retrieve commune details based on latitude and longitude.
+ *     parameters:
+ *       - in: query
+ *         name: lat
+ *         required: true
+ *         schema:
+ *           type: number
+ *         description: Latitude coordinate.
+ *       - in: query
+ *         name: long
+ *         required: true
+ *         schema:
+ *           type: number
+ *         description: Longitude coordinate.
+ *     responses:
+ *       200:
+ *         description: Successfully found the commune.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Success"
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     commune:
+ *                       type: object
+ *                       additionalProperties: true
+ *       404:
+ *         description: Commune not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Fail"
+ *                 message:
+ *                   type: string
+ *                   example: "Not found"
+ *       400:
+ *         description: Bad request (e.g., invalid parameters or file read error).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Fail"
+ *                 message:
+ *                   type: string
+ *                   example: "Error message"
+ */
+
 exports.getCommune = (req, res) => {
 
     try {

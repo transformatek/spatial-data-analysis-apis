@@ -29,6 +29,7 @@ npm install
 4. Run the project
 
 ```bash
+cd src
 node server
 ```
 

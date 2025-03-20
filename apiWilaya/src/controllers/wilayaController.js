@@ -1,6 +1,70 @@
 const turf = require('@turf/turf');
 const fs = require('fs');
 
+/**
+ * @swagger
+ * /api/v1/getWilaya:
+ *   get:
+ *     summary: Get wilaya by coordinates
+ *     description: Retrieve wilaya details based on latitude and longitude.
+ *     parameters:
+ *       - in: query
+ *         name: lat
+ *         required: true
+ *         schema:
+ *           type: number
+ *         description: Latitude coordinate.
+ *       - in: query
+ *         name: long
+ *         required: true
+ *         schema:
+ *           type: number
+ *         description: Longitude coordinate.
+ *     responses:
+ *       200:
+ *         description: Successfully found the wilaya.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Success"
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     wilaya:
+ *                       type: object
+ *                       additionalProperties: true
+ *       404:
+ *         description: Wilaya not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Fail"
+ *                 message:
+ *                   type: string
+ *                   example: "Not found"
+ *       400:
+ *         description: Bad request (e.g., invalid parameters or file read error).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Fail"
+ *                 message:
+ *                   type: string
+ *                   example: "Error message"
+ */
+
 exports.getWilaya = (req, res) => {
 
     try {
